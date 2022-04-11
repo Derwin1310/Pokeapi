@@ -1,0 +1,45 @@
+{
+	"name": "portfolio-web",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack --config config/webpack.prod.js",
+		"start": "webpack serve --config config/webpack.dev.js",
+		"predeploy": "npm run build",
+		"deploy": "cp CNAME build/CNAME && gh-pages -d build"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@iconify/json": "^2.1.14",
+		"core-js": "^3.21.1",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-select": "^5.2.2",
+		"styled-components": "^5.3.5"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.17.5",
+		"@babel/preset-env": "^7.16.11",
+		"@babel/preset-react": "^7.16.7",
+		"@iconify/react": "^3.1.4",
+		"@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
+		"babel-loader": "^8.2.3",
+		"clean-webpack-plugin": "^4.0.0",
+		"css-loader": "^6.6.0",
+		"gh-pages": "^3.2.3",
+		"html-webpack-plugin": "^5.5.0",
+		"mini-css-extract-plugin": "^2.5.3",
+		"react-refresh": "^0.11.0",
+		"sass": "^1.49.9",
+		"sass-loader": "^12.6.0",
+		"style-loader": "^3.3.1",
+		"webpack": "^5.69.1",
+		"webpack-cli": "^4.9.2",
+		"webpack-dev-server": "^4.7.4",
+		"webpack-merge": "^5.8.0"
+	},
+	"browserslist": "> 0.25%, not dead, not ie 11"
+}
