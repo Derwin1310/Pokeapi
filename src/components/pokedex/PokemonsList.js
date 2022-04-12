@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-export const PokemonsList = () => {
+export function PokemonsList () {
 	const [items, setItems] = useState();
 
 	const typeSearch = 'pokemon';

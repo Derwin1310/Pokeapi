@@ -2,8 +2,7 @@ import React from 'react';
 import {PokemonsList} from './PokemonsList';
 import './styles.sass';
 
-
-export const Pokeapi = () => {
+export function Pokeapi () {
 	return (
 		<main className='section'>
 			<header className='header'>
