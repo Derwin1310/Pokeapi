@@ -1,0 +1,70 @@
+@import 'src/variables.sass'
+
+.section
+    margin: auto
+    color: $primary-color
+    display: flex
+    flex-direction: column
+    gap: 5rem
+    max-width: 50rem
+    align-items: center
+    font-family: $family
+    height: 100vh
+    padding: 0 1rem 1rem
+
+.header
+    width: 25rem
+    display: flex
+    flex-direction: column
+    gap: 1rem
+    align-items: center
+    background: linear-gradient(90deg, $bg-color1,$bg-color2)
+    font-weight: 600
+    box-shadow: 0 .3rem 1.2rem .7rem #0007
+    padding: 1rem
+
+    &__pokeball
+        width: 6rem
+
+.searcher
+    width: 100%
+
+    &__bar
+        width: 90% 
+        padding: .5rem 1.5rem
+        border: 3px solid $primary-color
+        border-top-left-radius: 1.2rem
+        border-bottom-left-radius: 1.2rem
+        background-color: transparent
+        border-right: none
+        font-family: $family
+        font-size: 1rem
+        &:focus
+            outline: none
+    
+    &__btn
+        font-weight: 600
+        font-family: $family
+        font-size: 1rem
+        padding: .5rem 1.5rem
+        cursor: pointer
+        border: .2rem solid $primary-color
+        border-left: none
+        background-color: transparent
+        border-top-right-radius: 1.2rem
+        border-bottom-right-radius: 1.2rem
+
+.pokelist
+    width: 100%
+
+.pokeitem
+    text-transform: uppercase
+    background-color: $secondary-color
+    display: flex
+    padding: .5rem 1.5rem
+    border: .2rem solid $tertiary-color
+    border-radius: 1rem
+    justify-content: center
+    margin-bottom: .5rem
+
+    
