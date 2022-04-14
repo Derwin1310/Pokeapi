@@ -17,13 +17,13 @@ export function Pokeapi () {
 				/>
 			</header>
 
-			<form>
+			<form className='searcher'>
 				<input
-					className='search-bar'
+					className='searcher__bar'
 					type='search'
 					placeholder='Search your pokemon!'
 				/>
-				<button className='search-btn'>GO</button>
+				<button className='searcher__btn'>GO</button>
 			</form>
 
 			<PokemonsList />
