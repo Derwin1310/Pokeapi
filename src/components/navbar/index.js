@@ -2,13 +2,13 @@ import React from 'react';
 import './styles.sass';
 
 export const Navbar = () => {
-	const btn = ['First', 'Previe', 'Next', 'Last'];
+	const buttons = ['First', 'Previe', 'Next', 'Last'];
 
 	return (
 		<nav className='navbar'>
-			{btn.map(key => (
-				<button key={key} className='navbar__btn'>
-					{key}
+			{buttons.map(btn => (
+				<button key={btn} className='navbar__btn'>
+					{btn}
 				</button>
 			))}
 		</nav>
