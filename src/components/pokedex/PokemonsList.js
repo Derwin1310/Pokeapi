@@ -1,22 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
-export function PokemonsList() {
-	const [pokemons, setPokemons] = useState();
-
-	const typeSearch = 'pokemon';
-	const resultPerPAge = 10;
-	const pageNumber = 0;
-	const URL_PAGE = `https://pokeapi.co/api/v2/${typeSearch}/?limit=${resultPerPAge}&offset=${pageNumber}`;
-
-	const getPokemons = async () => {
-		const res = await fetch(URL_PAGE);
-		const {results} = await res.json();
-		setPokemons(results);
-	};
-
-	useEffect(() => {
-		getPokemons();
-	}, []);
+export function PokemonsList({pokemons, pageNumbers, totalOfPages}) {
 	return (
 		<ul className='pokelist'>
 			{pokemons
@@ -26,6 +10,7 @@ export function PokemonsList() {
 						</li>
 				  ))
 				: 'Loading...'}
+			<span>{`${Math.ceil(pageNumbers / 10) + 1} of ${Math.ceil(totalOfPages / 10) + 1}`}</span>
 		</ul>
 	);
 }
