@@ -1,9 +1,10 @@
-/* Colors */    
-$primary-color: #ff8888
-$secondary-color:#ffffff88
-$dark: #000
-$light: #fff7
-$gray: #777
+/* Colors */   
+
+$bg-color1: #ff8888
+$bg-color2:#ffffff88
+$primary-color: #000
+$secondary-color: #fff7
+$tertiary-color: #777
 
 /* Fonts */ 
 $family1: 'Varela Round'
@@ -11,8 +12,8 @@ $family2: san-serif
 
     
 .section
-    background: linear-gradient(90deg, $secondary-color, $primary-color)
-    color: $dark
+    background: linear-gradient(90deg, $bg-color2, $bg-color1)
+    color: $primary-color
     display: flex
     flex-direction: column
     gap: 5rem
@@ -28,7 +29,7 @@ $family2: san-serif
     flex-direction: column
     gap: 1rem
     align-items: center
-    background: linear-gradient(90deg, $primary-color,$secondary-color)
+    background: linear-gradient(90deg, $bg-color1,$bg-color2)
     font-weight: 600
     box-shadow: 0 .3rem 1.2rem .7rem #0007
     padding: 1rem
@@ -39,7 +40,7 @@ $family2: san-serif
 .search-bar
     width: 37.5rem
     padding: .5rem
-    border: 3px solid $dark
+    border: 3px solid $primary-color
     border-top-left-radius: 1.2rem
     border-bottom-left-radius: 1.2rem
     background-color: transparent
@@ -53,7 +54,7 @@ $family2: san-serif
     font-size: 1rem
     padding: .5rem
     cursor: pointer
-    border: .2rem solid $dark
+    border: .2rem solid $primary-color
     border-left: none
     background-color: transparent
     border-top-right-radius: 1.2rem
@@ -68,11 +69,11 @@ $family2: san-serif
 
 .pokeitem
     text-transform: uppercase
-    background-color: $light
+    background-color: $secondary-color
     display: flex
     width: 100%
     padding: .5rem .5rem
-    border: .2rem solid $gray
+    border: .2rem solid $tertiary-color
     border-radius: 1rem
     justify-content: center
 
