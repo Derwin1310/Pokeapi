@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Navbar } from '../navbar';
+import {Navbar} from '../navbar';
 import {PokemonsList} from './PokemonsList';
 import './styles.sass';
 
@@ -9,6 +9,7 @@ export function Pokeapi () {
 	const [totalOfPages, setTotalOfPages] = useState(0);
 
 	const imgLogo = 'https://cdn.discordapp.com/attachments/616187144700166144/962947321891524608/Poke_Ball_icon.svg.png';
+
 	const typeSearch = 'pokemon';
 	const resultPerPAge = 10;
 	const URL_PAGE = `https://pokeapi.co/api/v2/${typeSearch}/?limit=${resultPerPAge}&offset=${pageNumbers}`;

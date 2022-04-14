@@ -10,7 +10,7 @@ export function PokemonsList({pokemons, pageNumbers, totalOfPages}) {
 						</li>
 				  ))
 				: 'Loading...'}
-			<span>{`${Math.ceil(pageNumbers / 10) + 1} of ${Math.ceil(totalOfPages / 10) + 1}`}</span>
+			<span className='counter'>{`${Math.ceil(pageNumbers / 10) + 1}/${Math.ceil(totalOfPages / 10) + 1}`}</span>
 		</ul>
 	);
 }
