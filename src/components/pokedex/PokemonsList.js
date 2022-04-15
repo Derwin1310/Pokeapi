@@ -1,4 +1,6 @@
 import React from 'react';
+import {Spinner} from 'src/helpers/spinner';
+
 
 export function PokemonsList({pokemons, pageNumbers, totalOfPokemons}) {
 	const actualPage = Math.ceil(pageNumbers / 10) + 1;
@@ -12,7 +14,7 @@ export function PokemonsList({pokemons, pageNumbers, totalOfPokemons}) {
 							{item.name}
 						</li>
 				  ))
-				: 'Loading...'}
+				: <Spinner />}
 			<span className='counter'>
 				<p className='counter__actual-page'>{actualPage}</p>
 
