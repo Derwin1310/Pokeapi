@@ -1,6 +1,5 @@
 import React from 'react';
-import {Spinner} from 'src/helpers/spinner';
-
+import {Spinner} from '/src/components/helpers/spinner';
 
 export function PokemonsList({pokemons, pageNumbers, totalOfPokemons}) {
 	const actualPage = Math.ceil(pageNumbers / 10) + 1;
