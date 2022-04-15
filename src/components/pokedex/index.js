@@ -1,10 +1,29 @@
-import React from 'react';
-import { Navbar } from '../navbar';
+import React, {useState, useEffect} from 'react';
+import {Navbar} from '../navbar';
 import {PokemonsList} from './PokemonsList';
 import './styles.sass';
 
 export function Pokeapi () {
+	const [pokemon, setPokemon] = useState();
+	const [pageNumbers, setPageNumbers] = useState(0);
+	const [totalOfPokemons, setTotalOfPokemons] = useState(0);
+
 	const imgLogo = 'https://cdn.discordapp.com/attachments/616187144700166144/962947321891524608/Poke_Ball_icon.svg.png';
+
+	const typeSearch = 'pokemon';
+	const resultPerPAge = 10;
+	const URL_PAGE = `https://pokeapi.co/api/v2/${typeSearch}/?limit=${resultPerPAge}&offset=${pageNumbers}`;
+	
+	const getPokemons = async () => {
+		const res = await fetch(URL_PAGE);
+		const rawData = await res.json();
+		setPokemon(rawData.results);
+		setTotalOfPokemons(rawData.count - 10);
+	};
+	
+	useEffect(() => {
+		getPokemons();
+	}, [pageNumbers]);
 
 	return (
 		<section className='section'>
@@ -26,9 +45,9 @@ export function Pokeapi () {
 				<button className='searcher__btn'>GO</button>
 			</form>
 
-			<PokemonsList />
+			<PokemonsList totalOfPokemons={totalOfPokemons} pokemons={pokemon} pageNumbers={pageNumbers} />
 
-			<Navbar />
+			<Navbar totalOfPokemons={totalOfPokemons} pageNumbers={pageNumbers} setPageNumbers={setPageNumbers} />
 		</section>
 	);
 };

@@ -1,14 +1,35 @@
 import React from 'react';
 import './styles.sass';
 
-export const Navbar = () => {
-	const buttons = ['First', 'Previe', 'Next', 'Last'];
+export const Navbar = ({pageNumbers, setPageNumbers, totalOfPokemons}) => {
+	const buttons = [
+		{
+			name: 'First',
+			logic: () => setPageNumbers(0),
+			disabled: !pageNumbers
+		},
+		{
+			name: 'Previous',
+			logic: () => setPageNumbers(pageNumbers - 10),
+			disabled: !pageNumbers
+		},
+		{
+			name: 'Next',
+			logic: () => setPageNumbers(pageNumbers + 10),
+			disabled: pageNumbers === totalOfPokemons,
+		},
+		{
+			name: 'Last',
+			logic: () => setPageNumbers(totalOfPokemons),
+			disabled: pageNumbers === totalOfPokemons,
+		}
+	]
 
 	return (
 		<nav className='navbar'>
-			{buttons.map(btn => (
-				<button key={btn} className='navbar__btn'>
-					{btn}
+			{buttons.map(({name, logic, disabled}) => (
+				<button disabled={disabled} onClick={logic} key={name} className='navbar__btn'>
+					{name}
 				</button>
 			))}
 		</nav>
