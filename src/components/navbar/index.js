@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.sass';
 
-export const Navbar = ({pageNumbers, setPageNumbers, totalOfPages}) => {
+export const Navbar = ({pageNumbers, setPageNumbers, totalOfPokemons}) => {
 	const buttons = [
 		{
 			name: 'First',
@@ -16,12 +16,12 @@ export const Navbar = ({pageNumbers, setPageNumbers, totalOfPages}) => {
 		{
 			name: 'Next',
 			logic: () => setPageNumbers(pageNumbers + 10),
-			disabled: pageNumbers === totalOfPages,
+			disabled: pageNumbers === totalOfPokemons,
 		},
 		{
 			name: 'Last',
-			logic: () => setPageNumbers(totalOfPages),
-			disabled: pageNumbers === totalOfPages,
+			logic: () => setPageNumbers(totalOfPokemons),
+			disabled: pageNumbers === totalOfPokemons,
 		}
 	]
 
