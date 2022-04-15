@@ -1,6 +1,9 @@
 import React from 'react';
 
 export function PokemonsList({pokemons, pageNumbers, totalOfPokemons}) {
+	const actualPage = Math.ceil(pageNumbers / 10) + 1;
+	const totalPages = Math.ceil(totalOfPokemons / 10) + 1;
+
 	return (
 		<ul className='pokelist'>
 			{pokemons
@@ -11,15 +14,11 @@ export function PokemonsList({pokemons, pageNumbers, totalOfPokemons}) {
 				  ))
 				: 'Loading...'}
 			<span className='counter'>
-				<span className='counter__page'>
-					{Math.ceil(pageNumbers / 10) + 1}
-				</span>
+				<p className='counter__actual-page'>{actualPage}</p>
 
 				<span className='counter__divisor' />
-				
-				<span className='counter__pokemons'>
-					{Math.ceil(totalOfPokemons / 10) + 1}
-				</span>
+
+				<p className='counter__total-pages'>{totalPages}</p>
 			</span>
 		</ul>
 	);
