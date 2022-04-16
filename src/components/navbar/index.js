@@ -17,10 +17,8 @@ export const Navbar = ({pageNumbers, setPageNumbers, totalOfPokemons}) => {
 			disabled: !pageNumbers,
 		},
 		{
-			name: '',
-			actualPage: actualPage,
-			divisor: '/',
-			totalPages: totalPages,
+			name: actualPage + ' / ' + totalPages,
+			style: 'navbar__counter'
 		},
 		{
 			name: 'Next',
@@ -37,16 +35,13 @@ export const Navbar = ({pageNumbers, setPageNumbers, totalOfPokemons}) => {
 	return (
 		<nav className='navbar'>
 			{buttons.map(
-				({name, logic, disabled, actualPage, divisor, totalPages}) => (
+				({name, logic, disabled, style}) => (
 					<button
 						disabled={disabled}
 						onClick={logic}
 						key={name}
-						className='navbar__btn'
+						className={`navbar__btn ${style}`}
 					>
-						{actualPage}
-						{divisor}
-						{totalPages}
 						{name}
 					</button>
 				),

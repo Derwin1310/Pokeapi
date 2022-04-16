@@ -1,12 +1,18 @@
 @import 'src/variables.sass'
     
+.options
+    top: 0
+
 .navbar
+    bottom: 0
+
+.navbar,
+.options
     width: 100%
     display: flex
     justify-content: space-between
     gap: 1rem
     position: sticky
-    bottom: 0
     background-color: $bg-color3
     padding: .5rem 0
 
@@ -19,15 +25,17 @@
         cursor: pointer
         border-radius: 4px
         border: none
+        padding: .5rem 0rem
         &:disabled
             background-color: $tertiary-color
             cursor: default
-        &:nth-child(3)
-            background-color: transparent
-            width: 80%
-            cursor: default
-            color: $btn-color2
-            border: 2px solid $btn-color2
-            padding: .5rem 0rem
-            border-radius: 50px
+
+.navbar__counter
+    background-color: transparent
+    width: 80%
+    cursor: default
+    color: $btn-color2
+    border: 2px solid $btn-color2            
+    border-radius: 50px
+
             
