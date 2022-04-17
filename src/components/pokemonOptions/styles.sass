@@ -1,7 +1,6 @@
 @import 'src/variables.sass'
 
-.navbar
-    bottom: 0
+.options
     width: 100%
     display: flex
     justify-content: space-between
@@ -9,6 +8,7 @@
     position: sticky
     background-color: $bg-color3
     padding: .5rem 0
+    top: 0
 
     &__btn
         width: 100%
@@ -20,16 +20,3 @@
         border-radius: 4px
         border: none
         padding: .5rem 0rem
-        &:disabled
-            background-color: $tertiary-color
-            cursor: default
-
-.navbar__counter
-    background-color: transparent
-    width: 80%
-    cursor: default
-    color: $btn-color2
-    border: 2px solid $btn-color2            
-    border-radius: 50px
-
-            

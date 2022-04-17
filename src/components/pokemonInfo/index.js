@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.sass';
 
-export const Info = () => {
+export function PokemonInfo () {
 	const pokeInfo = ['image', 'id', 'name', 'height', 'weight'];
 
 	return (

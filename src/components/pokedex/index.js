@@ -1,9 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import { Navbar } from '/src/components/navbar';
-import { Options } from '/src/components/navbar/Options';
-import { PokemonsList } from '/src/components/pokemonsList';
+import React, { useState, useEffect } from 'react';
+import { Navbar, Options, PokemonsList } from '/src/components/';
 import imgLogo from '/public/assets/pokeball.png'
-import { getPokemons } from '/src/components/helpers/getPokemons';
+import { getPokemons } from '/src/helpers/getPokemons';
 import './styles.sass';
 
 export function Pokeapi() {

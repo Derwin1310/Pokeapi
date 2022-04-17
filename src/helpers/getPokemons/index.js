@@ -10,8 +10,8 @@ export const getPokemons = async (setPokemon, setTotalOfPokemons, pageNumbers) =
     const rawPokemons = rawData.results;
 
     const pokemonFullData = await Promise.all(
-        rawPokemons.map(async pokemon => {
-            const resp = await fetch(pokemon.url);
+        rawPokemons.map(async ({url}) => {
+            const resp = await fetch(url);
             return resp.json();
         }),
     );

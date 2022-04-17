@@ -4,6 +4,7 @@ import './styles.sass';
 export const Navbar = ({pageNumbers, setPageNumbers, totalOfPokemons}) => {
 	const actualPage = Math.ceil(pageNumbers / 10) + 1;
 	const totalPages = Math.ceil(totalOfPokemons / 10) + 1;
+	const lastPokemons = (parseInt(totalOfPokemons / 10, 10) * 10) + 10;
 
 	const buttons = [
 		{
@@ -23,12 +24,12 @@ export const Navbar = ({pageNumbers, setPageNumbers, totalOfPokemons}) => {
 		{
 			name: 'Next',
 			logic: () => setPageNumbers(pageNumbers + 10),
-			disabled: pageNumbers === totalOfPokemons,
+			disabled: pageNumbers >= totalOfPokemons,
 		},
 		{
 			name: 'Last',
-			logic: () => setPageNumbers(totalOfPokemons),
-			disabled: pageNumbers === totalOfPokemons,
+			logic: () => setPageNumbers(lastPokemons),
+			disabled: pageNumbers >= totalOfPokemons,
 		},
 	];
 

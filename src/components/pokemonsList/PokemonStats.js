@@ -1,11 +1,11 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import image from '/public/assets/pokeball.png';
 
-export const PokemonsMap = ({pokemons}) => {
+export const PokemonStats = ({pokemons}) => {
 	return (
 		<Fragment>
 			{pokemons.map(({sprites: {front_default}, id, name, height, weight}) => {
-				const pokeImg = front_default ? front_default : image;
+				const pokeImg = front_default || image;
 
 				const pokeHeight = height >= 10 ? `${height / 10} m` : `${height}0 cm`;
 
@@ -21,7 +21,7 @@ export const PokemonsMap = ({pokemons}) => {
 							<img className='pokeitem__img' src={pokeImg} alt='pokemon img' />
 						</figure>
 
-						{pokeStats.map(item => <span>{item}</span>)}
+						{pokeStats.map(item => <span key={item}>{item}</span>)}
 					</li>
 				);
 			})}

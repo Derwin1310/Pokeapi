@@ -1,15 +1,15 @@
 import React from 'react';
-import {Info} from '/src/components/info';
-import {Spinner} from '/src/components/helpers/spinner';
-import {PokemonsMap} from './PokemonsMap';
+import { PokemonInfo } from '/src/components/';
+import { Spinner } from '/src/helpers/spinner';
+import { PokemonStats } from './PokemonStats';
 import './styles.sass';
 
 export function PokemonsList({pokemons}) {
 	return (
 		<ul className='pokelist'>
-			<Info />
+			<PokemonInfo />
 
-			{pokemons ? <PokemonsMap pokemons={pokemons} /> : <Spinner />}
+			{pokemons ? <PokemonStats pokemons={pokemons} /> : <Spinner />}
 		</ul>
 	);
 }
