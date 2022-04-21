@@ -35,7 +35,7 @@ export function PokemonImg({ sprites }) {
 				src={validation() || pokeball}
 				alt='pokemon img'
 			/>
-			{showGender && front_female && <span className='pokeitem__female'>&#9792;</span>}
+			{(showGender && front_female) && <span className='pokeitem__female'>&#9792;</span>}
 		</figure>
 	);
 }

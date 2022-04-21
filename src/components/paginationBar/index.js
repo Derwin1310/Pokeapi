@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { pokemonContext } from '/src/components';
-import { getActualPage, getTotalPages, getLastPokemons } from '/src/helpers/formatData';
+import { getActualPage, getTotalPages, getLastPokemons } from '/src/helpers';
 import './styles.sass';
 
 export function PaginationBar () {
