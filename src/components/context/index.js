@@ -27,7 +27,6 @@ export function ApiContext({ children }) {
 				return resp.json();
 			}),
 		);
-        // console.log("🚀 ~ file: index.js ~ line 29 ~ getPokemons ~ pokemonFullData", pokemonFullData)
 
 		setPokemon(pokemonFullData);
 		setTotalOfPokemons(rawData.count - 10);

@@ -1,13 +1,10 @@
 import React, { useContext } from 'react';
 import { pokemonContext } from '/src/components';
+import { getActualPage, getTotalPages, getLastPokemons } from '/src/helpers/formatData';
 import './styles.sass';
 
 export function PaginationBar () {
 	const { effects: { setPageNumbers }, pageNumbers, totalOfPokemons } = useContext(pokemonContext)
-
-	const actualPage = Math.ceil(pageNumbers / 10) + 1;
-	const totalPages = Math.ceil(totalOfPokemons / 10) + 1;
-	const lastPokemons = (parseInt(totalOfPokemons / 10, 10) * 10) + 10;
 
 	const buttons = [
 		{
@@ -21,7 +18,7 @@ export function PaginationBar () {
 			disabled: !pageNumbers,
 		},
 		{
-			name: actualPage + ' / ' + totalPages,
+			name: getActualPage(pageNumbers) + ' / ' + getTotalPages(totalOfPokemons),
 			style: 'navbar__counter'
 		},
 		{
@@ -31,7 +28,7 @@ export function PaginationBar () {
 		},
 		{
 			name: 'Last',
-			logic: () => setPageNumbers(lastPokemons),
+			logic: () => setPageNumbers(getLastPokemons(totalOfPokemons)),
 			disabled: pageNumbers >= totalOfPokemons,
 		},
 	];
