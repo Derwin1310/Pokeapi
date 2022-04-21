@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { pokemonContext } from '/src/components';
 import './styles.sass';
 
-export const Navbar = ({pageNumbers, setPageNumbers, totalOfPokemons}) => {
+export function PaginationBar () {
+	const { effects: { setPageNumbers }, pageNumbers, totalOfPokemons } = useContext(pokemonContext)
+
 	const actualPage = Math.ceil(pageNumbers / 10) + 1;
 	const totalPages = Math.ceil(totalOfPokemons / 10) + 1;
 	const lastPokemons = (parseInt(totalOfPokemons / 10, 10) * 10) + 10;
@@ -36,7 +39,7 @@ export const Navbar = ({pageNumbers, setPageNumbers, totalOfPokemons}) => {
 	return (
 		<nav className='navbar'>
 			{buttons.map(
-				({name, logic, disabled, style}) => (
+				({ name, logic, disabled, style }) => (
 					<button
 						disabled={disabled}
 						onClick={logic}

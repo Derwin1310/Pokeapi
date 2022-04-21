@@ -1,15 +1,19 @@
-import React from 'react';
-import { PokemonInfo } from '/src/components/';
-import { Spinner } from '/src/helpers/spinner';
+import React, { useContext } from 'react';
+import { pokemonContext } from '/src/components';
+import { PokemonInfo } from './PokemonInfo'
+import { Spinner } from '/src/helpers';
 import { PokemonStats } from './PokemonStats';
 import './styles.sass';
 
-export function PokemonsList({pokemons}) {
+export function PokemonsList () {
+	const { pokemon } = useContext(pokemonContext);
+
+	if (!pokemon) return <Spinner /> 
+
 	return (
 		<ul className='pokelist'>
 			<PokemonInfo />
-
-			{pokemons ? <PokemonStats pokemons={pokemons} /> : <Spinner />}
+			<PokemonStats />
 		</ul>
 	);
 }
