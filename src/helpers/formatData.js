@@ -5,7 +5,7 @@ export function formatHeight(height) {
 export function formatWeight(weight) {
 	const weightInKgs = weight / 10;
 	const weightInTons = weightInKgs / 1000;
-	return	weightInKgs < 1000 ? `${weightInKgs} kg` : `${weightInTons} ton`;
+	return weightInKgs < 1000 ? `${weightInKgs} kg` : `${weightInTons} ton`;
 }
 
 export function getActualPage(pageNumbers) {
