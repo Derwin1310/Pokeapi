@@ -1,0 +1,32 @@
+@import '/src/variables.sass'
+
+.searcher
+    width: 100%
+    margin-bottom: 2rem
+    position: relative
+
+    &__bar
+        width: 100% 
+        padding: .5rem 1.5rem
+        background-color: transparent
+        border-right: none
+        font-family: $family
+        font-size: 1rem
+        border-radius: 50px
+        border: 1px solid $tertiary-color
+        &:focus
+            outline: none
+
+    &__btn
+        position: absolute
+        top: 50%
+        right: 0
+        transform: translateY(-50%)
+        font-weight: 600
+        font-family: $family
+        font-size: 1rem
+        padding: .5rem 1.5rem
+        cursor: pointer
+        border: none
+        color: $tertiary-color
+        background-color: transparent

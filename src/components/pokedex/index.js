@@ -1,53 +1,29 @@
-import React, {useState, useEffect} from 'react';
-import {Navbar} from '../navbar';
-import {PokemonsList} from './PokemonsList';
+import React, { useContext, useEffect } from 'react';
+import { PaginationBar, Options, PokemonsList, pokemonContext, Searcher } from '/src/components';
+import imgLogo from '/public/assets/pokeball.png'
 import './styles.sass';
 
 export function Pokeapi () {
-	const [pokemon, setPokemon] = useState();
-	const [pageNumbers, setPageNumbers] = useState(0);
-	const [totalOfPokemons, setTotalOfPokemons] = useState(0);
+	const { effects:{ getPokemons, setPokemon, setTotalOfPokemons }, pageNumbers } = useContext(pokemonContext);
 
-	const imgLogo = 'https://cdn.discordapp.com/attachments/616187144700166144/962947321891524608/Poke_Ball_icon.svg.png';
-
-	const typeSearch = 'pokemon';
-	const resultPerPAge = 10;
-	const URL_PAGE = `https://pokeapi.co/api/v2/${typeSearch}/?limit=${resultPerPAge}&offset=${pageNumbers}`;
-	
-	const getPokemons = async () => {
-		const res = await fetch(URL_PAGE);
-		const rawData = await res.json();
-		setPokemon(rawData.results);
-		setTotalOfPokemons(rawData.count - 10);
-	};
-	
 	useEffect(() => {
-		getPokemons();
+		getPokemons(setPokemon, setTotalOfPokemons, pageNumbers)
 	}, [pageNumbers]);
 
 	return (
 		<section className='section'>
 			<header className='header'>
-				<h1 className='header__name'>POKEAPI</h1>
-				<img
-					className='header__pokeball'
-					src={imgLogo}
-					alt='pokeball icon'
-				/>
+				<img src={imgLogo} alt='pokeball icon' />
+				<h1 className='header__name'>Online Pokedex</h1>
 			</header>
 
-			<form className='searcher'>
-				<input
-					className='searcher__bar'
-					type='search'
-					placeholder='Search your pokemon!'
-				/>
-				<button className='searcher__btn'>GO</button>
-			</form>
+			<Searcher />
 
-			<PokemonsList totalOfPokemons={totalOfPokemons} pokemons={pokemon} pageNumbers={pageNumbers} />
+			<Options />
 
-			<Navbar totalOfPokemons={totalOfPokemons} pageNumbers={pageNumbers} setPageNumbers={setPageNumbers} />
+			<PokemonsList />
+
+			<PaginationBar />
 		</section>
 	);
-};
+}

@@ -5,102 +5,20 @@
     color: $primary-color
     display: flex
     flex-direction: column
-    gap: 3rem
+    gap: 1rem
     max-width: 50rem
     align-items: center
     font-family: $family
-    height: 100vh
     padding: 0 1rem 1rem
 
 .header
     width: 25rem
+    justify-content: center
     display: flex
-    flex-direction: column
     gap: 1rem
     align-items: center
-    background: linear-gradient(90deg, $bg-color1,$bg-color2)
     font-weight: 600
-    box-shadow: 0 .3rem 1.2rem .7rem #0007
-    padding: 1rem
-
-    &__pokeball
-        width: 6rem
-
-.searcher
-    width: 100%
-
-    &__bar
-        width: 90% 
-        padding: .5rem 1.5rem
-        border: 3px solid $primary-color
-        border-top-left-radius: 20px
-        border-bottom-left-radius: 20px
-        background-color: transparent
-        border-right: none
-        font-family: $family
-        font-size: 1rem
-        &:focus
-            outline: none
-    
-    &__btn
-        font-weight: 600
-        font-family: $family
-        font-size: 1rem
-        padding: .5rem 1.5rem
-        cursor: pointer
-        border: 3px solid $primary-color
-        border-left: none
-        background-color: transparent
-        border-top-right-radius: 20px
-        border-bottom-right-radius: 20px
-
-.pokelist
-    width: 100%
-    text-align: center
-    display: flex
-    flex-direction: column
-    gap: .5rem
-    align-items: center
-
-.pokeitem
-    width: 100%
-    text-transform: uppercase
-    background-color: $secondary-color
-    padding: .5rem 1.5rem
-    border: 3px solid $tertiary-color
-    border-radius: 20px
-
-.counter
-    width: 5rem
-    height: 2.7rem
-    background-color: $secondary-color
-    font-size: 1rem
-    border: 3px solid $tertiary-color
-    padding: .5rem 1.5rem
-    border-radius: 20px
-    position: relative
-
-    &__actual-page
-        width: 20px
-        text-align: right
-        position: absolute
-        left: 10px
-        top: 3px
-        font-weight: 600
-
-    &__divisor
-        position: absolute
-        border-right: 2px solid $tertiary-color
-        height: 58px
-        transform: rotate(45deg)
-        left: 40px
-        top: -10px
-        
-    &__total-pages
-        position: absolute
-        right: 5px
-        bottom: 3px
-
-
+    font-size: 2rem
+    margin-bottom: 2rem
 
     
