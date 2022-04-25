@@ -12,7 +12,7 @@ export function PokemonStats() {
 				const { id, name, height, weight, sprites } = item;
 				const pokeStats = [
 					id,
-					name,
+					name.replaceAll('-', ' '),
 					formatHeight(height),
 					formatWeight(weight),
 				];

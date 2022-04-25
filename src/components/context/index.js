@@ -3,6 +3,8 @@ import React, { createContext, useState } from 'react';
 export const pokemonContext = createContext();
 
 export function ApiContext({ children }) {
+	const [notFound, setNotFound] = useState(false);
+	const [searchValue, setSearchValue] = useState('');
 	const [pokemon, setPokemon] = useState();
 	const [pageNumbers, setPageNumbers] = useState(0);
 	const [totalOfPokemons, setTotalOfPokemons] = useState(0);
@@ -11,11 +13,13 @@ export function ApiContext({ children }) {
 	const [showGender, setShowGender] = useState(false);
 
 	const getPokemons = async () => {
+		setPokemon(false);
+		setNotFound(false)
+
 		const typeSearch = 'pokemon';
 		const resultPerPAge = 10;
 		const URL_PAGE = `https://pokeapi.co/api/v2/${typeSearch}/?limit=${resultPerPAge}&offset=${pageNumbers}`;
 
-		setPokemon(false);
 		const res = await fetch(URL_PAGE);
 		const rawData = await res.json();
 
@@ -32,7 +36,28 @@ export function ApiContext({ children }) {
 		setTotalOfPokemons(rawData.count - 10);
 	};
 
+	const searchPokemon = async () => {
+		setPokemon(false)
+		setNotFound(false)
+		
+		const query = searchValue.toLowerCase().trim().replaceAll(' ', '-');
+
+		if(!query) return getPokemons();
+
+		const URL_PAGE = `https://pokeapi.co/api/v2/pokemon/${query}/`;
+
+		try {
+			const res = await fetch(URL_PAGE);
+			const pokemonFinded = await res.json();
+			setPokemon([pokemonFinded]);
+		} catch {
+			setNotFound(true)
+		}
+	}
+
 	const INITIAL_STATE = {
+		notFound,
+		searchValue,
 		pokemon,
 		pageNumbers,
 		totalOfPokemons,
@@ -44,6 +69,9 @@ export function ApiContext({ children }) {
 	const setState = () => {
 		return {
 			getPokemons,
+			searchPokemon,
+			setNotFound,
+			setSearchValue,
 			setPokemon,
 			setPageNumbers,
 			setTotalOfPokemons,

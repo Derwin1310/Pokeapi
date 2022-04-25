@@ -1,19 +1,25 @@
-import React, { useContext } from 'react';
-import { pokemonContext } from '/src/components';
-import { PokemonInfo } from './PokemonInfo'
+import React, { Fragment, useContext } from 'react';
+import { PokemonInfo } from './pokemonInfo';
 import { Spinner } from '/src/helpers';
-import { PokemonStats } from './PokemonStats';
+import { PokemonStats } from './pokemonStats';
+import { PokemonNotFound } from './pokemonNotFound';
+import { PaginationBar, Options, pokemonContext } from '/src/components';
 import './styles.sass';
 
-export function PokemonsList () {
-	const { pokemon } = useContext(pokemonContext);
+export function PokemonsList() {
+	const { pokemon, notFound } = useContext(pokemonContext);
 
-	if (!pokemon) return <Spinner /> 
+	if (notFound) return <PokemonNotFound />;
+	if (!pokemon) return <Spinner />;
 
 	return (
-		<ul className='pokelist'>
-			<PokemonInfo />
-			<PokemonStats />
-		</ul>
+		<Fragment>
+			<Options />
+			<ul className='pokelist'>
+				<PokemonInfo />
+				<PokemonStats />
+			</ul>
+			<PaginationBar />
+		</Fragment>
 	);
 }

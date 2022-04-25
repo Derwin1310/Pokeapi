@@ -1,15 +1,30 @@
-import React from 'react';
-import './styles.sass'
+import React, { useContext } from 'react';
+import { pokemonContext } from '/src/components/context';
+import './styles.sass';
 
-export const Searcher = () => {
+export function Searcher() {
+	const {
+		effects: { setSearchValue, searchPokemon },
+	} = useContext(pokemonContext);
+
+	const handlerInputValue = e => setSearchValue(e.target.value);
+
+	const handlerSubmit = e => {
+		e.preventDefault();
+		searchPokemon();
+	};
+
 	return (
-		<form className='searcher'>
+		<form onSubmit={handlerSubmit} className='searcher'>
 			<input
+				onChange={handlerInputValue}
 				className='searcher__bar'
 				type='search'
 				placeholder='Search your pokemon!'
 			/>
-			<button className='searcher__btn'>GO</button>
+			<button type='submit' className='searcher__btn'>
+				GO!
+			</button>
 		</form>
 	);
-};
+}
