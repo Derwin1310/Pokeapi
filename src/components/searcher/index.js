@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { pokemonContext } from '/src/components/context';
+import { pokemonContext } from '/src/hooks';
 import './styles.sass';
 
 export function Searcher() {

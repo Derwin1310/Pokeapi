@@ -14,7 +14,7 @@ export function ApiContext({ children }) {
 
 	const getPokemons = async () => {
 		setPokemon(false);
-		setNotFound(false)
+		setNotFound();
 
 		const typeSearch = 'pokemon';
 		const resultPerPAge = 10;
@@ -37,12 +37,12 @@ export function ApiContext({ children }) {
 	};
 
 	const searchPokemon = async () => {
-		setPokemon(false)
-		setNotFound(false)
-		
+		setPokemon(false);
+		setNotFound();
+
 		const query = searchValue.toLowerCase().trim().replaceAll(' ', '-');
 
-		if(!query) return getPokemons();
+		if (!query) return getPokemons();
 
 		const URL_PAGE = `https://pokeapi.co/api/v2/pokemon/${query}/`;
 
@@ -51,9 +51,9 @@ export function ApiContext({ children }) {
 			const pokemonFinded = await res.json();
 			setPokemon([pokemonFinded]);
 		} catch {
-			setNotFound(true)
+			setNotFound(true);
 		}
-	}
+	};
 
 	const INITIAL_STATE = {
 		notFound,

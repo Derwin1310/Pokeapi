@@ -1,9 +1,10 @@
 import React, { Fragment, useContext } from 'react';
+import { pokemonContext } from '/src/hooks';
 import { PokemonInfo } from './pokemonInfo';
 import { Spinner } from '/src/helpers';
 import { PokemonStats } from './pokemonStats';
 import { PokemonNotFound } from './pokemonNotFound';
-import { PaginationBar, Options, pokemonContext } from '/src/components';
+import { PaginationBtns, PokemonOptions } from './listButtons';
 import './styles.sass';
 
 export function PokemonsList() {
@@ -14,12 +15,12 @@ export function PokemonsList() {
 
 	return (
 		<Fragment>
-			<Options />
+			<PokemonOptions />
 			<ul className='pokelist'>
 				<PokemonInfo />
 				<PokemonStats />
 			</ul>
-			<PaginationBar />
+			<PaginationBtns />
 		</Fragment>
 	);
 }

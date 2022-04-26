@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from 'react';
 import { PokemonImg } from './pokemonImg';
-import { pokemonContext } from '/src/components';
+import { pokemonContext } from '/src/hooks';
 import { formatHeight, formatWeight } from '/src/helpers';
 
 export function PokemonStats() {

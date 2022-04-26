@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { pokemonContext } from '/src/components';
+import { pokemonContext } from '/src/hooks';
 import { getActualPage, getTotalPages, getLastPokemons } from '/src/helpers';
 import './styles.sass';
 
-export function PaginationBar () {
+export function PaginationBtns () {
 	const { effects: { setPageNumbers }, pageNumbers, totalOfPokemons } = useContext(pokemonContext)
 
 	const buttons = [
@@ -18,7 +18,7 @@ export function PaginationBar () {
 			disabled: !pageNumbers,
 		},
 		{
-			name: getActualPage(pageNumbers) + ' / ' + getTotalPages(totalOfPokemons),
+			name: `${getActualPage(pageNumbers)} / ${getTotalPages(totalOfPokemons)}`,
 			style: 'navbar__counter'
 		},
 		{

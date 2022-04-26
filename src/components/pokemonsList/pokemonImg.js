@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { pokemonContext } from '/src/components';
+import { pokemonContext } from '/src/hooks';
 import pokeball from '/public/assets/pokeball.png';
 
 export function PokemonImg({ sprites }) {
