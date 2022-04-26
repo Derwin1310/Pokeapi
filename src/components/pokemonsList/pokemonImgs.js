@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { pokemonContext } from '/src/hooks';
 import pokeball from '/public/assets/pokeball.png';
 
-export function PokemonImg({ sprites }) {
+export function PokemonImgs({ sprites }) {
 	const { showBack, showShiny, showGender } = useContext(pokemonContext);
 
 	const {

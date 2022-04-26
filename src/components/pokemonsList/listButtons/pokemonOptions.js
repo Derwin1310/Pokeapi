@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { pokemonContext } from '/src/hooks';
 import './styles.sass'
 
-export const PokemonOptions = () => {
+export function PokemonOptions() {
 	const { effects: { setShowShiny, setShowBack, setShowGender }, showShiny, showBack, showGender } = useContext(pokemonContext);
 
 	const listOptions = [

@@ -3,7 +3,7 @@ import { pokemonContext } from '/src/hooks';
 import { getActualPage, getTotalPages, getLastPokemons } from '/src/helpers';
 import './styles.sass';
 
-export function PaginationBtns () {
+export function PaginationBtns() {
 	const { effects: { setPageNumbers }, pageNumbers, totalOfPokemons } = useContext(pokemonContext)
 
 	const buttons = [

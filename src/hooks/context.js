@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import { formatInputName } from '/src/helpers';
 
 export const pokemonContext = createContext();
 
@@ -40,7 +41,7 @@ export function ApiContext({ children }) {
 		setPokemon(false);
 		setNotFound();
 
-		const query = searchValue.toLowerCase().trim().replaceAll(' ', '-');
+		const query = formatInputName(searchValue)
 
 		if (!query) return getPokemons();
 

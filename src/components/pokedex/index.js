@@ -4,7 +4,7 @@ import { pokemonContext } from '/src/hooks';
 import imgLogo from '/public/assets/pokeball.png'
 import './styles.sass';
 
-export function Pokeapi () {
+export function Pokeapi() {
 	const { pageNumbers, effects:{ getPokemons } } = useContext(pokemonContext);
 
 	useEffect(() => getPokemons(), [pageNumbers]);
