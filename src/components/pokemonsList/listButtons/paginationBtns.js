@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { pokemonContext } from '/src/hooks';
+import { pokemonContext } from '/src/context';
 import { getActualPage, getTotalPages, getLastPokemons } from '/src/helpers';
 import './styles.sass';
 

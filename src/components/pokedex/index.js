@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { PokemonsList, Searcher } from '/src/components';
-import { pokemonContext } from '/src/hooks';
+import { pokemonContext } from '/src/context';
 import imgLogo from '/public/assets/pokeball.png'
 import './styles.sass';
 

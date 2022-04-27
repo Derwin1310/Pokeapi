@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { pokemonContext } from '/src/hooks';
+import { pokemonContext } from '/src/context';
 import pokeball from '/public/assets/pokeball.png';
 
-export function PokemonNotFound() {
+export function NotFound() {
 	const { effects: { getPokemons } } = useContext(pokemonContext)
 
 	return (
