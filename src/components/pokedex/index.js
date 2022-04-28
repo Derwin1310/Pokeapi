@@ -1,14 +1,13 @@
 import React, { useContext, useEffect } from 'react';
-import { PaginationBar, Options, PokemonsList, pokemonContext, Searcher } from '/src/components';
+import { PokemonsList, Searcher } from '/src/components';
+import { pokemonContext } from '/src/context';
 import imgLogo from '/public/assets/pokeball.png'
 import './styles.sass';
 
-export function Pokeapi () {
-	const { effects:{ getPokemons, setPokemon, setTotalOfPokemons }, pageNumbers } = useContext(pokemonContext);
+export function Pokeapi() {
+	const { pageNumbers, effects:{ getPokemons } } = useContext(pokemonContext);
 
-	useEffect(() => {
-		getPokemons(setPokemon, setTotalOfPokemons, pageNumbers)
-	}, [pageNumbers]);
+	useEffect(() => getPokemons(), [pageNumbers]);
 
 	return (
 		<section className='section'>
@@ -18,12 +17,8 @@ export function Pokeapi () {
 			</header>
 
 			<Searcher />
-
-			<Options />
-
+		
 			<PokemonsList />
-
-			<PaginationBar />
 		</section>
 	);
 }

@@ -19,3 +19,11 @@ export function getTotalPages(totalOfPokemons) {
 export function getLastPokemons(totalOfPokemons) {
 	return parseInt(totalOfPokemons / 10, 10) * 10 + 10;
 }
+
+export function normalize(value) {
+	return value.toUpperCase().trim().replaceAll('-', ' ');
+}
+
+export function reverseNormalize(value) {
+	return value.toLowerCase().trim().replaceAll(' ', '-');
+}
