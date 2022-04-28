@@ -1,7 +1,7 @@
 import React, { Fragment, useContext } from 'react';
 import { PokemonImgs } from './pokemonImgs';
 import { pokemonContext } from '/src/context';
-import { formatHeight, formatWeight, getPokemonName } from '/src/helpers';
+import { formatHeight, formatWeight, normalize } from '/src/helpers';
 
 export function PokemonStats() {
 	const { pokemon } = useContext(pokemonContext);
@@ -12,7 +12,7 @@ export function PokemonStats() {
 				const { id, name, height, weight, sprites } = item;
 				const pokeStats = [
 					id,
-					getPokemonName(name),
+					normalize(name),
 					formatHeight(height),
 					formatWeight(weight),
 				];

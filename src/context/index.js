@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { formatInputName } from '/src/helpers';
+import { reverseNormalize } from '/src/helpers';
 
 export const pokemonContext = createContext();
 
@@ -41,7 +41,7 @@ export function ApiContext({ children }) {
 		setPokemon(false);
 		setNotFound();
 
-		const query = formatInputName(searchValue)
+		const query = reverseNormalize(searchValue)
 
 		if (!query) return getPokemons();
 

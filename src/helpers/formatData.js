@@ -20,10 +20,10 @@ export function getLastPokemons(totalOfPokemons) {
 	return parseInt(totalOfPokemons / 10, 10) * 10 + 10;
 }
 
-export function formatInputName(name) {
-	return name.toLowerCase().trim().replaceAll(' ', '-');
+export function normalize(value) {
+	return value.toUpperCase().trim().replaceAll('-', ' ');
 }
 
-export function getPokemonName(name) {
-	return name.toUpperCase().trim().replaceAll('-', ' ');
+export function reverseNormalize(value) {
+	return value.toLowerCase().trim().replaceAll(' ', '-');
 }
