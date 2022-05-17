@@ -1,9 +1,10 @@
-# Welcome to my Portfolio web!
+# Pokedex online!
 
-It's not over yet, but will be soon!
+Search any pokemon that you want to see!
 
 ## Technologies
 
 React js
+Sass
 node version: 16.13.2
 run it with: npm start
