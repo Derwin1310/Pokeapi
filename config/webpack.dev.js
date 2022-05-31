@@ -7,7 +7,7 @@ const common = require("./webpack.common");
 const devConfig = {
   mode: "development",
   devServer: {
-    port: 3000,
+    port: 5500,
     static: "../dist",
     open: true,
     hot: true,

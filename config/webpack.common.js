@@ -1,5 +1,6 @@
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require("path");
 
 /** @type {import('webpack').Configuration} */
@@ -16,16 +17,16 @@ module.exports = {
     rules: [
       {
         use: "babel-loader",
-        test: /\.(js|jsx)$/,
+        test: /.(js|jsx)$/,
         exclude: /node_modules/,
       },
       {
         use: ["style-loader", "css-loader", "sass-loader"],
-        test: /\.(css|scss|sass)$/,
+        test: /.(css|scss|sass)$/,
       },
       {
         type: "asset",
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /.(png|svg|jpg|jpeg|gif)$/i,
       },
     ],
   },
@@ -33,9 +34,14 @@ module.exports = {
     extensions: [".js", ".json", ".jsx"],
   },
   plugins: [
+    new HtmlWebPackPlugin({
+      template: './public/index.html',
+      filename: './index.html',
+      favicon: './src/public/assets/favicon/favicon.ico',
+    }),
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: "./public/index.html",
+    new MiniCssExtractPlugin({
+      filename: 'assets/[name].css',
     }),
   ],
 };
